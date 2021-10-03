@@ -1,6 +1,6 @@
 #Shopee - Price Match Gurantee
 ## 1. Introduction
-![ex_img1](./img/shopee.png)
+![image](./img/shopee.png)
 2021년 [캐글](www.kaggle.com)에서 주최한 대회로 동남아시아의 이커머스 플랫폼인 [Shopee](https://www.kaggle.com/c/shopee-product-matching) 가 데이터를 제공하였다.
 대회의 목적은 머신러닝을 이용하여 해당 상품이 어떤 상품 그룹군에 속하는지를 찾는 것이다. Train 데이터에는 한 상품 그룹군에 속하는 아이템들이 적게는 2개에서 많게는 50개까지 있었기에 단순한 이미지 분류문제는 아니였고, 상품 이미지 외에 주어지는 게시물 제목인 Title text 도 적절히 사용해야만 좋은 결과를 낼 수 있는 대회였다.
 
@@ -9,7 +9,6 @@
 ## 2. Data
 
 * [EDA](./EDA/RAPIDS%20cuML%20TfidfVectorizer%20and%20KNN.ipynb)
-
 
 * 3.2만장의 학습 이미지와 해당 이미지에 대한 csv 파일이 제공된다. 데이터는 [이곳](https://www.kaggle.com/c/shopee-product-matching/data?select=train.csv) 에서 다운받을 수 있으며 메타데이터의 내용은 아래와 같다.
 
