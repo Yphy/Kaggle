@@ -1,7 +1,7 @@
-#Shopee - Price Match Gurantee
+# Shopee - Price Match Gurantee
 ## 1. Introduction
 ![image](./img/shopee.png)
-2021년 [캐글](www.kaggle.com)에서 주최한 대회로 동남아시아의 이커머스 플랫폼인 [Shopee](https://www.kaggle.com/c/shopee-product-matching) 가 데이터를 제공하였다.
+2021년 [캐글](www.kaggle.com)에서 주최한 대회로 동남아시아의 이커머스 플랫폼인 [Shopee](https://www.kaggle.com/c/shopee-product-matching)가 데이터를 제공하였다.
 대회의 목적은 머신러닝을 이용하여 해당 상품이 어떤 상품 그룹군에 속하는지를 찾는 것이다. Train 데이터에는 한 상품 그룹군에 속하는 아이템들이 적게는 2개에서 많게는 50개까지 있었기에 단순한 이미지 분류문제는 아니였고, 상품 이미지 외에 주어지는 게시물 제목인 Title text 도 적절히 사용해야만 좋은 결과를 낼 수 있는 대회였다.
 
 두 번째로 참여한 이번 캐글에서는 최종 189등(8%)로 [동메달](./img/rank)을 획득하였으나 팀병합 규정 위반으로 대회 이후에 취소되었다(대회 종료 5일 전까지는 코드를 공유한 팀원과 합병 필요하다).
@@ -10,7 +10,7 @@
 
 * [EDA](./EDA/RAPIDS%20cuML%20TfidfVectorizer%20and%20KNN.ipynb)
 
-* 3.2만장의 학습 이미지와 해당 이미지에 대한 csv 파일이 제공된다. 데이터는 [이곳](https://www.kaggle.com/c/shopee-product-matching/data?select=train.csv) 에서 다운받을 수 있으며 메타데이터의 내용은 아래와 같다.
+* 3.2만장의 학습 이미지와 해당 이미지에 대한 csv 파일이 제공된다. 데이터는 [이곳](https://www.kaggle.com/c/shopee-product-matching/data?select=train.csv)에서 다운받을 수 있으며 메타데이터의 내용은 아래와 같다.
 
   * posting_id - the ID code for the posting. 
   * image - the image id/md5sum.
@@ -22,7 +22,7 @@
 
  ### 3.1 ArcFace 
 ![img](./img/ArcFace.png) 
-이번 대회를 하면서 새롭게 알게 된 것으로 대회에 참여한 대부분의 사람들은 **ArcFace Loss**([pdf](https://arxiv.org/abs/1801.07698)) 를 이용하였다.
+이번 대회를 하면서 새롭게 알게 된 것으로 대회에 참여한 대부분의 사람들은 **ArcFace Loss**([pdf](https://arxiv.org/abs/1801.07698))를 이용하였다.
 일반적으로 CNN 모델에서 이미지가 레이어를 거치면서 N 차원의 임베딩 값들을 가지게 되고,
 이 벡터값들이 마지막의 Fc layer 를 거치면서 클래스 분류가 된다. 여기서 마지막 이전 레이어의 임베딩 값들의 Cosine 혹은 Euclidean distance 를 계산함으로써
 두 이미지의 비슷함 정도를 계산할 수 있다. ArcFace는 face recognition 문제 해결을 위해 나온 방법으로 softmax loss 를 사용했을 때, output vector가
@@ -54,15 +54,15 @@ KNN 알고리즘을 통해 벡터값들의 거리를 구해 최종 그룹군 예
     후자가 조금 더 lb score 향상에 도움이 되었다. 
 
 ## 4. Inference
-* [Ensemble Image models](./inference/Ensemble multiple_models.ipynb)
-* [Bert](./inference/Bert Inference.ipynb)
+* [Ensemble Image models](./Inference/Ensemble multiple_models.ipynb)
+* [Bert](./inference/BERT inference.ipynb)
 * [Submission](./inference/submission.ipynb)
   
   <br>
   Image, Tfidf , BERT 세 가지 학습된 모델의 임베딩 값들을 KNN,Cosine distance 등의 방법으로 post_id 별로 매치되는 그룹을 prediction. 이후
   모델별 예측값들의 unique set을 제출한다.
 
-##5. etc
+## 5. etc
 * [OCR](./EDA/OCR.ipynb)
   
     상품 이미지기 때문에 이미지에 상품 타이틀이 박혀있는 경우가 종종 있어서 pytesseract 등의 라이브러리를 이용하여 피쳐를 추가하려는 시도를 했으나 데이터셋 변환 시간이 너무 오래걸려 포기.
