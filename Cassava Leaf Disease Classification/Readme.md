@@ -6,23 +6,23 @@
 * 최종 LB 상위 13%
 
 ## Solution
-###1. Data
-merge 2019,2020 dataset
+### 1. Data
+  * merge 2019,2020 dataset
 
 
-###2. Model
+### 2. Model
    * *EfficientNet_b4_ns*
-    * *ViT based 16-384*
+   * *ViT based 16-384*
     
 
-###3. Training Strategy
+### 3. Training Strategy
 * **Augmentation** : Light augmentation, no cutmix
 * **Stratified5Fold**
   
 * **Loss function** : TaylorSmoothedLoss
 * **Scheduler** : CosineAnnealingWarmRestarts
 
-###4. Inference
+### 4. Inference
 * **Ensemble** : 0.7 * Effficient_b4,  0.3   * VIT
 * **TTA** : 4xTTA, 0.001-0.002 improvement in all experiments for both CV and LB
 
