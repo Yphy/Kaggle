@@ -54,8 +54,8 @@ KNN 알고리즘을 통해 벡터값들의 거리를 구해 최종 그룹군 예
     후자가 조금 더 lb score 향상에 도움이 되었다. 
 
 ## 4. Inference
-* [Ensemble Image models](./Inference/Ensemble multiple_models.ipynb)
-* [Bert](./inference/BERT inference.ipynb)
+* [Ensemble Image models](./inference/Ensemble_multiple_models.ipynb)
+* [Bert](./inference/BERT_inference.ipynb)
 * [Submission](./inference/submission.ipynb)
   
   <br>
